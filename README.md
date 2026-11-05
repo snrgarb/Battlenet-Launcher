@@ -52,6 +52,7 @@ with minimal/no interaction with the battle.net client while still being automat
 |Warcraft 3: Reforged | w3|
 |World of Warcraft | wow|
 |World of Warcraft Classic | wowclassic|
+|World of Warcraft Forever | wowf|
 |World of Warcraft Public Test Realm | wowptr|
 |Tony Hawk Pro Skater 3+4 | thps34|
 
