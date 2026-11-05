@@ -18,7 +18,7 @@ int main(int argc, char **argv)
 	FreeConsole();
 	//Return error if no parameter is specified
 	if (argv[1] == NULL) {
-		MessageBox(0, "Specify which game to launch: \n\nBlizzard Arcade Collection = rtro\nCall of Duty HQ = codhq\nCall of Duty: Black Ops 4 = codbo4\nCall of Duty: Black Ops Cold War = codbocw\nCall of Duty: Modern Warfare = codmw2019\nCall of Duty: Modern Warfare 2 Campaign Remastered = codmw2cr\nCall of Duty: MWII | WZ2.0 = codmw2\nCall of Duty: Vanguard = codvg\nCrash Bandicoot 4: It's About Time = cb4\nDiablo 2: Resurrected = d2r\nDiablo 3 = d3\nDiablo 3 Public Test Realm = d3ptr\nDiablo 4 = d4\nDiablo Immortal = di\nHearthstone = hs\nHeroes of the Storm = hots\nHeroes of the Storm Public Test Realm = hotsptr\nOverwatch = ow\nOverwatch Public Test Realm = owptr\nStarcraft 2 = sc2\nStarcraft Remastered = scr\nWarcraft 1: Orcs & Humans = w1\nWarcraft 1: Remastered = w1r\nWarcraft 2: Battle.net Edition = w2\nWarcraft 2: Remastered = w2r\nWarcraft 3: Reforged = w3\nWorld of Warcraft = wow\nWorld of Warcraft Classic = wowclassic\nWorld of Warcraft Public Test Realm = wowptr\nTony Hawk Pro Skater 3+4 = thps34", "Error", MB_OK);
+		MessageBox(0, "Specify which game to launch: \n\nBlizzard Arcade Collection = rtro\nCall of Duty HQ = codhq\nCall of Duty: Black Ops 4 = codbo4\nCall of Duty: Black Ops Cold War = codbocw\nCall of Duty: Modern Warfare = codmw2019\nCall of Duty: Modern Warfare 2 Campaign Remastered = codmw2cr\nCall of Duty: MWII | WZ2.0 = codmw2\nCall of Duty: Vanguard = codvg\nCrash Bandicoot 4: It's About Time = cb4\nDiablo 2: Resurrected = d2r\nDiablo 3 = d3\nDiablo 3 Public Test Realm = d3ptr\nDiablo 4 = d4\nDiablo Immortal = di\nHearthstone = hs\nHeroes of the Storm = hots\nHeroes of the Storm Public Test Realm = hotsptr\nOverwatch = ow\nOverwatch Public Test Realm = owptr\nStarcraft 2 = sc2\nStarcraft Remastered = scr\nWarcraft 1: Orcs & Humans = w1\nWarcraft 1: Remastered = w1r\nWarcraft 2: Battle.net Edition = w2\nWarcraft 2: Remastered = w2r\nWarcraft 3: Reforged = w3\nWorld of Warcraft = wow\nWorld of Warcraft Classic = wowclassic\nWorld of Warcraft Forever = wowf\nWorld of Warcraft Public Test Realm = wowptr\nTony Hawk Pro Skater 3+4 = thps34", "Error", MB_OK);
 		return TRUE;
 	}
 	//determine which battlefield to start
@@ -168,6 +168,12 @@ int main(int argc, char **argv)
 		oID = "--exec=\"launch wow_classic_era\"";
 		gEX = "WowClassic.exe";
 	}*/ 
+	else if (_stricmp(argv[1], "wowf") == 0 || _stricmp(argv[1], "wowforever") == 0) {
+		//name=World of Warcraft Forever. The exec code is the case-sensitive game family id "WoWF"
+		//(agent uid "wowf" selects nothing, so Battle.net falls back to its default game). Installs to "_forever_".
+		oID = "--exec=\"launch WoWF\"";
+		gEX = "Wow.exe";
+	}
 	else if (_stricmp(argv[1], "wowptr") == 0) {
 		//name=World of Warcraft Public Test Realm
 		oID = "--exec=\"launch wowt\"";
@@ -179,7 +185,7 @@ int main(int argc, char **argv)
 		gEX = "Base.exe";
 	}
 	else {
-		MessageBox(0, "Please specify a valid parameter: \n\nBlizzard Arcade Collection = rtro\nCall of Duty HQ = codhq\nCall of Duty: Black Ops 4 = codbo4\nCall of Duty: Black Ops Cold War = codbocw\nCall of Duty: Modern Warfare = codmw2019\nCall of Duty: Modern Warfare 2 Campaign Remastered = codmw2cr\nCall of Duty: MWII | WZ2.0 = codmw2\nCall of Duty: Vanguard = codvg\nCrash Bandicoot 4: It's About Time = cb4\nDiablo 2: Resurrected = d2r\nDiablo 3 = d3\nDiablo 3 Public Test Realm = d3ptr\nDiablo 4 = d4\nDiablo Immortal = di\nHearthstone = hs\nHeroes of the Storm = hots\nHeroes of the Storm Public Test Realm = hotsptr\nOverwatch = ow\nOverwatch Public Test Realm = owptr\nStarcraft 2 = sc2\nStarcraft Remastered = scr\nWarcraft 1: Orcs & Humans = w1\nWarcraft 1: Remastered = w1r\nWarcraft 2: Battle.net Edition = w2\nWarcraft 2: Remastered = w2r\nWarcraft 3: Reforged = w3\nWorld of Warcraft = wow\nWorld of Warcraft Classic = wowclassic\nWorld of Warcraft Public Test Realm = wowptr\nTony Hawk Pro Skater 3+4 = thps34", "Error", MB_OK);
+		MessageBox(0, "Please specify a valid parameter: \n\nBlizzard Arcade Collection = rtro\nCall of Duty HQ = codhq\nCall of Duty: Black Ops 4 = codbo4\nCall of Duty: Black Ops Cold War = codbocw\nCall of Duty: Modern Warfare = codmw2019\nCall of Duty: Modern Warfare 2 Campaign Remastered = codmw2cr\nCall of Duty: MWII | WZ2.0 = codmw2\nCall of Duty: Vanguard = codvg\nCrash Bandicoot 4: It's About Time = cb4\nDiablo 2: Resurrected = d2r\nDiablo 3 = d3\nDiablo 3 Public Test Realm = d3ptr\nDiablo 4 = d4\nDiablo Immortal = di\nHearthstone = hs\nHeroes of the Storm = hots\nHeroes of the Storm Public Test Realm = hotsptr\nOverwatch = ow\nOverwatch Public Test Realm = owptr\nStarcraft 2 = sc2\nStarcraft Remastered = scr\nWarcraft 1: Orcs & Humans = w1\nWarcraft 1: Remastered = w1r\nWarcraft 2: Battle.net Edition = w2\nWarcraft 2: Remastered = w2r\nWarcraft 3: Reforged = w3\nWorld of Warcraft = wow\nWorld of Warcraft Classic = wowclassic\nWorld of Warcraft Forever = wowf\nWorld of Warcraft Public Test Realm = wowptr\nTony Hawk Pro Skater 3+4 = thps34", "Error", MB_OK);
 		return TRUE;
 		}
 	//determine battlenet directory
@@ -192,38 +198,25 @@ int main(int argc, char **argv)
 	if (IsRunning("Battle.net.exe")){
 		Kill("Battle.net.exe");
 	}
-	//start battlenet as child program
-	if (Start(oDir, "--autostarted") <= 32) {
+	//start battlenet with the launch command as its startup argument. Some games (WoW Forever) are only selected,
+	//not started, when the command comes on the command line, so keep sending it every 10s until the game runs.
+	//A command sent to an instance that is still loading is passed on over IPC and dropped (harmless);
+	//under Wine/Proton Battle.net takes 10-30 seconds before it can launch a game.
+	if (Start(oDir, oID) <= 32) {
 		MessageBox(0, "Failed to launch Battle.net. \nMake sure it's installed in its default location.", "Error", MB_OK);
 		return TRUE;
 	}
-	while (!IsRunning("Battle.net.exe")){
+	for (int i = 1; i <= 150 && !IsRunning(gEX); i++) {
 		Sleep(1000);
-	}
-	//wait for battlenet to go idle
-	Sleep(8000);
-	//launch game
-	Start(oDir, oID);
-	for (int i = 1; i<10; i++){
-		Sleep (1000);
-		if (IsRunning(gEX)) {
-			break;
+		if (i % 10 == 0 && !IsRunning(gEX)) {
+			Start(oDir, oID);
 		}
 	}
+	//exit if game does not start within 150s
 	if (!IsRunning(gEX)) {
-		Start(oDir, oID);
-		for (int i = 1; i < 10; i++) {
-			Sleep(1000);
-			if (IsRunning(gEX)) {
-				break;
-			}
-		}
-		//exit if game does not start after 2 attempts over 20s
-		if (!IsRunning(gEX)) {
-			MessageBox(0, "Game doesn't appear to be running. Closing launcher.", "Error", MB_OK);
-			Kill("Battle.net.exe");
-			return TRUE;
-		}
+		MessageBox(0, "Game doesn't appear to be running. Closing launcher.", "Error", MB_OK);
+		Kill("Battle.net.exe");
+		return TRUE;
 	}
 	LPCTSTR WindowName = "Battle.net";
 	HWND Find = FindWindow(NULL, WindowName);
@@ -233,9 +226,11 @@ int main(int argc, char **argv)
 		Sleep(1);
 		Find = FindWindow(NULL, WindowName);
 	}
-	//wait for game to close
-	while (IsRunning(gEX)){
+	//wait for game to close. Some games (WoW Forever) are relaunched by Battle.net right after the first start,
+	//so only stop once the game has been gone for 10 seconds in a row.
+	for (int gone = 0; gone < 10; ) {
 		Sleep(1000);
+		gone = IsRunning(gEX) ? 0 : gone + 1;
 	}
 	//usually we'd sleep here before closing the client to allow for cloudsave syncing, but battle.net's saves are typically handled by the games themselves.
 	//Close battlenet
@@ -246,34 +241,42 @@ int main(int argc, char **argv)
 //--------------- F U N C T I O N S ---------------//
 
 HANDLE GetHndl(LPCTSTR pName){
+	//caller must CloseHandle() the result
 	PROCESSENTRY32 entry;
 	entry.dwSize = sizeof(PROCESSENTRY32);
-	HANDLE snapshot = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, NULL);
+	HANDLE snapshot = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
+	if (snapshot == INVALID_HANDLE_VALUE)
+		return NULL;
+	HANDLE hProcess = NULL;
 	if (Process32First(snapshot, &entry) == TRUE){
-		while (Process32Next(snapshot, &entry) == TRUE){
-			if (_stricmp(entry.szExeFile, pName ) == 0){
-			HANDLE hProcess = OpenProcess(PROCESS_ALL_ACCESS, FALSE, entry.th32ProcessID);
-			CloseHandle(snapshot);
-			return hProcess;
+		do {
+			if (_stricmp(entry.szExeFile, pName) == 0){
+				hProcess = OpenProcess(PROCESS_TERMINATE | PROCESS_QUERY_LIMITED_INFORMATION, FALSE, entry.th32ProcessID);
+				break;
 			}
-		}
-	}return FALSE;
+		} while (Process32Next(snapshot, &entry) == TRUE);
+	}
+	CloseHandle(snapshot);
+	return hProcess;
 }
 
 int Start(LPCTSTR pName, LPCTSTR pArgs){
 	HINSTANCE h = ShellExecute(NULL,"open",pName,pArgs,NULL,SW_SHOW);
-	int r = (int) h;
-	return r;
+	return (int)(INT_PTR) h;
 }
 
 bool IsRunning(LPCTSTR pName){
-	if (GetHndl(pName)==0)
+	HANDLE hProcess = GetHndl(pName);
+	if (hProcess == NULL)
 		return FALSE;
+	CloseHandle(hProcess);
 	return TRUE;
 }
 
 void Kill(LPCTSTR pName){
 	HANDLE hProcess = GetHndl(pName);
-	TerminateProcess(hProcess, 0 );
+	if (hProcess == NULL)
+		return;
+	TerminateProcess(hProcess, 0);
+	CloseHandle(hProcess);
 }
-
